@@ -1,7 +1,8 @@
-package com.developersunited.geolocationtracker
+package com.developersunited.geolocationtracker.ui
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.developersunited.geolocationtracker.R
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
