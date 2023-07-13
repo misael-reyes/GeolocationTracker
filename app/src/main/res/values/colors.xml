@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+    <color name="blue_light">#4D5DFA</color>
+    <color name="gray_input">#FAFAFA</color>
+    <color name="gray_icon">#9E9E9E</color>
+    <color name="black_titles">#212121</color>
 </resources>
