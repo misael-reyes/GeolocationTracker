@@ -49,7 +49,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:icon="@drawable/ic_google_g"
-            app:iconTint="none"
+            app:iconTint="@null"
             app:iconGravity="textStart"
             android:layout_marginBottom="5dp"
             android:paddingVertical="15dp"
@@ -76,13 +76,13 @@
         android:layout_height="wrap_content"
         android:text="or"
         android:textSize="16sp"
-        app:layout_constraintBottom_toTopOf="@+id/materialButton"
+        app:layout_constraintBottom_toTopOf="@+id/btnSignEmailPassword"
         app:layout_constraintEnd_toStartOf="@+id/guidelineEnd"
         app:layout_constraintStart_toStartOf="@+id/guidelineBegin"
         app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
 
     <com.google.android.material.button.MaterialButton
-        android:id="@+id/materialButton"
+        android:id="@+id/btnSignEmailPassword"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:backgroundTint="@color/blue_light"
@@ -100,7 +100,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="@id/guidelineEnd"
         app:layout_constraintStart_toStartOf="@id/guidelineBegin"
-        app:layout_constraintTop_toBottomOf="@+id/materialButton">
+        app:layout_constraintTop_toBottomOf="@+id/btnSignEmailPassword">
 
         <TextView
             android:layout_width="0dp"
@@ -110,6 +110,7 @@
             android:textAlignment="textEnd"/>
 
         <TextView
+            android:id="@+id/tvLetsSignUp"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
