@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "488382925721",
+    "project_id": "geolocationtracker-2ef53",
+    "storage_bucket": "geolocationtracker-2ef53.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:488382925721:android:b0d30995b3c10693bd6108",
+        "android_client_info": {
+          "package_name": "com.developersunited.geolocationtracker"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "488382925721-mk4alrm5ecuh99sc1qg3vg4mbto9ti88.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.developersunited.geolocationtracker",
+            "certificate_hash": "c7317e4ccb2548a14912ab16e034afbda1eb9b83"
+          }
+        },
+        {
+          "client_id": "488382925721-ceofrcd1aargmmdsijbo3via3fu36cei.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAncq38YAK0qxPhkJsdr73Tl6X4zErkq0k"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "488382925721-ceofrcd1aargmmdsijbo3via3fu36cei.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
