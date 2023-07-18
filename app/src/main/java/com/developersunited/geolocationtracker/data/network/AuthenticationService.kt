@@ -9,6 +9,7 @@ import kotlinx.coroutines.withContext
 
 class AuthenticationService(private val firebase: FirebaseClient) {
 
+    val firebase1 = firebase
     suspend fun registerWithEmailAndPassword(loginBody: LoginBody): Task<AuthResult?> {
        return withContext(Dispatchers.IO) {
            firebase.auth.createUserWithEmailAndPassword(loginBody.email, loginBody.password)

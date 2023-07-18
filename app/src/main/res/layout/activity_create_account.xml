@@ -46,6 +46,7 @@
                 app:startIconTint="@color/gray_icon">
 
                 <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/etEmailCreateAccount"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:inputType="textEmailAddress"
@@ -67,6 +68,7 @@
                 app:endIconTint="@color/gray_icon">
 
                 <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/etPassCreateAccount"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:inputType="textPassword"
