@@ -9,6 +9,7 @@ import kotlinx.coroutines.withContext
 
 class AuthRepository(private val authService: AuthenticationService) {
 
+
     suspend fun registerWithEmailAndPassword(loginBody: LoginBody): Task<AuthResult?> {
         return authService.registerWithEmailAndPassword(loginBody)
     }
