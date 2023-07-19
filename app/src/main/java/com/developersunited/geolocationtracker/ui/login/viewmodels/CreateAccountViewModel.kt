@@ -9,9 +9,12 @@ import com.developersunited.geolocationtracker.data.network.FirebaseClient
 import com.developersunited.geolocationtracker.data.repository.AuthRepository
 import com.developersunited.geolocationtracker.domain.models.LoginBody
 import com.developersunited.geolocationtracker.domain.usecase.RegisterUserBasicUseCase
+import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
+import javax.inject.Inject
 
-class CreateAccountViewModel(
+@HiltViewModel
+class CreateAccountViewModel @Inject constructor(
     private val registerUserBasicUseCase: RegisterUserBasicUseCase
 ) : ViewModel() {
 
@@ -21,16 +24,17 @@ class CreateAccountViewModel(
     // private val registerUserBasicUseCase =  RegisterUserBasicUseCase(authRepository)
     fun registerWithEmailAndPass(loginBody: LoginBody) {
         viewModelScope.launch {
-            registerUserBasicUseCase(loginBody).addOnCompleteListener {result ->
-                if (result.isSuccessful){
-                    Log.i("success","true")
-                }else{
-                    Log.i("success","false")
-                }
+            val accountCreated = registerUserBasicUseCase(loginBody)
+            if (accountCreated) {
+                Log.i("success","true")
+            } else {
+                Log.i("success","false")
             }
         }
+
     }
 }
+/*
 class CreateAccountViewModelFactory(
     private val registerUserBasicUseCase: RegisterUserBasicUseCase
 ): ViewModelProvider.Factory {
@@ -38,3 +42,4 @@ class CreateAccountViewModelFactory(
         return CreateAccountViewModel(registerUserBasicUseCase) as T
     }
 }
+*/

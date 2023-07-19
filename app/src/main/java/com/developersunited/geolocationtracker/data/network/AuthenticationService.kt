@@ -5,20 +5,20 @@ import com.google.android.gms.tasks.Task
 import com.google.firebase.auth.AuthResult
 import com.google.firebase.auth.FirebaseAuth
 import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.tasks.await
 import kotlinx.coroutines.withContext
+import javax.inject.Inject
+import javax.inject.Singleton
 
-class AuthenticationService(private val firebase: FirebaseClient) {
+@Singleton
+class AuthenticationService @Inject constructor(private val firebase: FirebaseClient) {
 
     val firebase1 = firebase
-    suspend fun registerWithEmailAndPassword(loginBody: LoginBody): Task<AuthResult?> {
-       return withContext(Dispatchers.IO) {
-           firebase.auth.createUserWithEmailAndPassword(loginBody.email, loginBody.password)
-       }
+    suspend fun registerWithEmailAndPassword(loginBody: LoginBody): AuthResult? {
+        return firebase.auth.createUserWithEmailAndPassword(loginBody.email, loginBody.password).await()
     }
 
-    suspend fun loginWithEmailAndPassword(loginBody: LoginBody): Task<AuthResult?> {
-        return withContext(Dispatchers.IO) {
-            firebase.auth.createUserWithEmailAndPassword(loginBody.email, loginBody.password)
-        }
+    suspend fun loginWithEmailAndPassword(loginBody: LoginBody): AuthResult? {
+        return firebase.auth.createUserWithEmailAndPassword(loginBody.email, loginBody.password).await()
     }
 }

@@ -13,20 +13,14 @@ import com.developersunited.geolocationtracker.databinding.ActivityCreateAccount
 import com.developersunited.geolocationtracker.domain.models.LoginBody
 import com.developersunited.geolocationtracker.domain.usecase.RegisterUserBasicUseCase
 import com.developersunited.geolocationtracker.ui.login.viewmodels.CreateAccountViewModel
-import com.developersunited.geolocationtracker.ui.login.viewmodels.CreateAccountViewModelFactory
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class CreateAccountActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityCreateAccountBinding
 
-    private val firebaseClient = FirebaseClient
-    private val authenticationService = AuthenticationService(firebaseClient)
-    private val authRepository = AuthRepository(authenticationService)
-    private val registerUserBasicUseCase =  RegisterUserBasicUseCase(authRepository)
-
-    private val viewModel: CreateAccountViewModel by viewModels {
-        CreateAccountViewModelFactory(registerUserBasicUseCase)
-    }
+    private val viewModel: CreateAccountViewModel by viewModels()
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityCreateAccountBinding.inflate(layoutInflater)
