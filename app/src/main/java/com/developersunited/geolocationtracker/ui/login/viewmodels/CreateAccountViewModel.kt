@@ -2,6 +2,7 @@ package com.developersunited.geolocationtracker.ui.login.viewmodels
 
 import android.util.Log
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.viewModelScope
 import com.developersunited.geolocationtracker.data.network.AuthenticationService
 import com.developersunited.geolocationtracker.data.network.FirebaseClient
@@ -10,13 +11,14 @@ import com.developersunited.geolocationtracker.domain.models.LoginBody
 import com.developersunited.geolocationtracker.domain.usecase.RegisterUserBasicUseCase
 import kotlinx.coroutines.launch
 
-class CreateAccountViewModel() :
-    ViewModel() {
+class CreateAccountViewModel(
+    private val registerUserBasicUseCase: RegisterUserBasicUseCase
+) : ViewModel() {
 
-    private val firebaseClient = FirebaseClient
-    private val authenticationService = AuthenticationService(firebaseClient)
-    private val authRepository = AuthRepository(authenticationService)
-    private val registerUserBasicUseCase =  RegisterUserBasicUseCase(authRepository)
+    // private val firebaseClient = FirebaseClient
+    // private val authenticationService = AuthenticationService(firebaseClient)
+    // private val authRepository = AuthRepository(authenticationService)
+    // private val registerUserBasicUseCase =  RegisterUserBasicUseCase(authRepository)
     fun registerWithEmailAndPass(loginBody: LoginBody) {
         viewModelScope.launch {
             registerUserBasicUseCase(loginBody).addOnCompleteListener {result ->
@@ -27,5 +29,12 @@ class CreateAccountViewModel() :
                 }
             }
         }
+    }
+}
+class CreateAccountViewModelFactory(
+    private val registerUserBasicUseCase: RegisterUserBasicUseCase
+): ViewModelProvider.Factory {
+    override fun <T : ViewModel> create(modelClass: Class<T>): T {
+        return CreateAccountViewModel(registerUserBasicUseCase) as T
     }
 }
